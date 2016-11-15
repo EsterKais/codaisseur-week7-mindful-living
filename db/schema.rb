@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115115616) do
+ActiveRecord::Schema.define(version: 20161115121916) do
+
+  create_table "book_opinions", force: :cascade do |t|
+    t.text     "book_opinion_text"
+    t.string   "book_opinion_title"
+    t.string   "book_opinion_name"
+    t.boolean  "book_opinion_approved"
+    t.integer  "book_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["book_id"], name: "index_book_opinions_on_book_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string   "book_name"
+    t.text     "book_description"
+    t.string   "book_link_to_buy"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "profile_photos", force: :cascade do |t|
     t.string   "profile_image"
@@ -30,6 +49,13 @@ ActiveRecord::Schema.define(version: 20161115115616) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "profiles_books", id: false, force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_profiles_books_on_book_id"
+    t.index ["profile_id"], name: "index_profiles_books_on_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
