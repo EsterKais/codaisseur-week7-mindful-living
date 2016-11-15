@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115130447) do
+ActiveRecord::Schema.define(version: 20161115132929) do
 
   create_table "book_opinions", force: :cascade do |t|
     t.text     "book_opinion_text"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(version: 20161115130447) do
     t.string   "course_link_to_booking"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profile_photos", force: :cascade do |t|

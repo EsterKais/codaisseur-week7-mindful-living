@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:new, :edit, :create, :update]
   resources :profilephotos #could be profile_photos
+  resources :friendships, only: [:create, :destroy]
 end
