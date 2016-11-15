@@ -3,6 +3,8 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_one :profilephoto, dependent: :destroy #this could also be profile_photo, in case I run into bugs later on
   has_and_belongs_to_many :books
+  has_and_belongs_to_many :retreats
+  has_and_belongs_to_many :courses
 
 # VALIDATIONS
   validates :first_name, presence: true
