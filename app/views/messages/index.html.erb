@@ -7,13 +7,14 @@
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <li class="recommendation-item">
-        <p class="recommendation-content"><%= user.user_email %></p>
+        <p class="recommendation-content"><%= user.email %></p>
         <p class="recommendation-content"><%= message.body %></p>
       </li>
   <% end %>
+  <% end %>
 </ul>
 
-<%= form_for [@conversation, @message], html do |f| %>
+<%= form_for [@conversation, @message] do |f| %>
   <div class="form-field">
     <%= f.text_area :body %>
   </div>

@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
       @over_ten = true
       @messages = @messages [-10..-1]
     end
-    if aprams[:m]
+    if params[:m]
       @over_ten = false
       @messages = @conversation.messages
     end

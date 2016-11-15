@@ -9,7 +9,7 @@
           <% else %>
             <% recipient = User.find(conversation.sender_id) %>
           <% end %>
-          <% link_to recipient.user_email, conversation_messages_path(conversation) %>
+          <% link_to recipient.email, conversation_messages_path(conversation) %>
         <% end %>
       <% end %>
     </li>
@@ -22,7 +22,7 @@
   <% @users.each do |user| %>
     <% if user.id != current_user.id %>
     <li class="recommendation-item">
-    <%= user.user_email %> <%= link_to 'Hit me up!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
+    <%= user.email %> <%= link_to 'Hit me up!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' %>
     </li>
     <% end %>
   <% end %>
