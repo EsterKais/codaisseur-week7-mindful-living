@@ -8,10 +8,13 @@ User.delete_all
 # PROFILES
 ester_profile = Profile.create(first_name: "Ester", last_name: "Kais", years_in_practice: "1 - 5", profile_description: "Lorem Ipsum Yadiyadiyada Ester Profile", teacher: true)
 amber_profile = Profile.create(first_name: "Amber", last_name: "Taal", years_in_practice: "< 1", profile_description: "Lorem Ipsum Yadiyadiyada Amber Profile", teacher: false)
+pascal_profile = Profile.create(first_name: "Pascal", last_name: "de Rooij", years_in_practice: "5 - 10", profile_description: "Lorem Ipsum Yadiyadiyada Pascal Profile", teacher: true)
+
 
 # USERS
-ester = User.create(email: "ester@mindful-living.com", password: "sercret", profile: ester_profile)
-amber = User.create(email: "amber@mindful-living.com", password: "sercret", profile: amber_profile)
+ester = User.create(email: "ester@mindful-living.com", password: "secret", profile: ester_profile)
+amber = User.create(email: "amber@mindful-living.com", password: "secret", profile: amber_profile)
+pascal = User.create(email: "pascal@mindful-living.com", password: "secret", profile: pascal_profile)
 
 # RETREATS
 ester_retreat_one = Retreat.create(retreat_name: "Retreat1", retreat_description: "New yadiyada retreat1 Bla Ester retreat", retreat_link_to_info: "I am a retreat1 link to info", retreat_link_to_booking: "I am link to retreat1 booking", profiles: [ester_profile])

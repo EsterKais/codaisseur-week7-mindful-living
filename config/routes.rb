@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   resources :books
   resources :courses
 
-  resources :profiles, only: [:new, :edit, :create, :update]
+  resources :profiles
   resources :profilephotos #could be profile_photos
 
   resources :friendships, only: [:create, :destroy]
-  
+
   resources :conversations do
     resources :messages
   end

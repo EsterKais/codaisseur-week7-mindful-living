@@ -25,6 +25,7 @@
             <li role="separator" class="divider"></li>
 
             <% if current_user.has_profile? %>
+              <li><%= link_to "Your Profile", profile_path(current_user.profile.id) %>
               <li><%= link_to "Edit Profile"%></li>
             <% else %>
               <li><%= link_to "Create Profile"%></li>
