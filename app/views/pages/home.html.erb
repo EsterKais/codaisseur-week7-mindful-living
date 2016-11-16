@@ -2,8 +2,9 @@
 <ul>
   <% @retreats.each do |retreat| %>
   <li>
-    <span> Retreat: "<%= retreat.retreat_name %>"</span>
+    <span> Retreat: "<%= link_to retreat.retreat_name, retreat_path(retreat.id) %>"</span>
     <span> By: <%= retreat.profiles.first.first_name %></span>
+    <span> ID: <%= retreat.id %>
   </li>
   <% end %>
 </ul>
@@ -12,7 +13,7 @@
 <ul>
   <% @courses.each do |course| %>
   <li>
-    <span> Course: "<%= course.course_name %>"</span>
+    <span> Course: "<%= link_to course.course_name %>"</span>
     <span> By: <%= course.profiles.first.first_name %></span>
   </li>
   <% end %>
@@ -22,7 +23,7 @@
 <ul>
   <% @books.each do |book| %>
   <li>
-    <span> Book: "<%= book.book_name %>"</span>
+    <span> Book: "<%= link_to book.book_name %>"</span>
     <span> By: <%= book.profiles.first.first_name %></span>
   </li>
   <% end %>
