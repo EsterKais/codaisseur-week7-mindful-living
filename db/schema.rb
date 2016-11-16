@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20161115143155) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "books_profiles", id: false, force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_books_profiles_on_book_id"
+    t.index ["profile_id"], name: "index_books_profiles_on_profile_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -72,6 +79,13 @@ ActiveRecord::Schema.define(version: 20161115143155) do
     t.string   "course_link_to_booking"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "courses_profiles", id: false, force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "course_id"
+    t.index ["course_id"], name: "index_courses_profiles_on_course_id"
+    t.index ["profile_id"], name: "index_courses_profiles_on_profile_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -110,20 +124,6 @@ ActiveRecord::Schema.define(version: 20161115143155) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
-  create_table "profiles_books", id: false, force: :cascade do |t|
-    t.integer "profile_id"
-    t.integer "book_id"
-    t.index ["book_id"], name: "index_profiles_books_on_book_id"
-    t.index ["profile_id"], name: "index_profiles_books_on_profile_id"
-  end
-
-  create_table "profiles_courses", id: false, force: :cascade do |t|
-    t.integer "profile_id"
-    t.integer "course_id"
-    t.index ["course_id"], name: "index_profiles_courses_on_course_id"
-    t.index ["profile_id"], name: "index_profiles_courses_on_profile_id"
   end
 
   create_table "profiles_retreats", id: false, force: :cascade do |t|
