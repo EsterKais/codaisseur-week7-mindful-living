@@ -13,5 +13,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <ul>
+      <% @retreats.each do |retreat| %>
+      <li>
+        <span> Book: "<%= retreat.retreat_name %>"</span>
+        <span> By: <%= retreat.profiles.first.first_name %></span>
+      </li>
+      <% end %>
+    </ul>
   </body>
 </html>
