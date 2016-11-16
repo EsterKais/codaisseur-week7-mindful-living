@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :profilephotos #could be profile_photos
 
   resources :friendships, only: [:create, :destroy]
+  resources :recommendations, only: [:new, :create, :destroy]
 
   resources :conversations do
     resources :messages

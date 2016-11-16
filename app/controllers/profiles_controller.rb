@@ -8,6 +8,9 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
+    @users = User.all
     @user = current_user
+
+
   end
 end

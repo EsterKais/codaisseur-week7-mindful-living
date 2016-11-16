@@ -1,17 +1,9 @@
-<h3><%= @book.book_name %></h3>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Recommend this book?</h3>
+    </div>
 
-<ul>
-  <li>Description: <%= @book.book_description %></li>
-  <li>Buy now: <%= @book.book_link_to_buy %></li>
-  <li>By: <%= @book.profiles.first.first_name %></li>
-  <li>Photo: Coming soon!</li>
-</ul>
-
-<h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
-<ul>
-  <% for friendship in current_user.friendships %>
-  <li>
-    <%=h friendship.friend.email %>
     <div class="modal-body">
       <div class="form-group">
         <%= form_for @recommendation, remote: true do |f| %>
@@ -19,9 +11,13 @@
         <%= f.text_field :recommendation_message, placeholder: "Leave a message..", class: "form-control" %>
         <%= f.hidden_field :book_id, value: @book.id %>
         <%= f.hidden_field :recipient_id, value: friendship.friend_id %>
-        <% end %>
       </div>
     </div>
-  </li>
-  <% end %>
-</ul>
+
+    <div class="modal-footer">
+      <%= f.submit "Recommend this Book", class: "btn btn-danger" %>
+      <%= link_to "Naah, nevermind!", "#", class: "btn btn-default", data: { dismiss: "modal" } %>
+      <% end %>
+    </div>
+  </div>
+</div>

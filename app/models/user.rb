@@ -6,6 +6,12 @@ class User < ApplicationRecord
 
   # ASSOCIATIONS
   has_one :profile, dependent: :destroy
+
+  has_many :recommendations
+  has_many :recipients, :through => :recommendations
+
+  has_many :inverse_recommendations, :class_name => "Recommendation", :foreign_key => "recipient_id"
+  has_many :inverse_recipients, :through => :inverse_recommendations, :source => :user
   
   has_many :friendships
   has_many :friends, :through => :friendships
