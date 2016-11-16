@@ -1,19 +1,7 @@
-<h3>Welcome, <%= @profile.first_name %>!</h3>
+<h3>Connect with others!</h3>
 
 <ul>
-  <li>First Name: <%= @profile.first_name %></li>
-  <li>Last Name: <%= @profile.last_name %></li>
-  <li>Years in Practice: <%= @profile.years_in_practice %></li>
-  <li>Bio: <%= @profile.profile_description %></li>
-
-  <%# if @profile.teacher true %>
-  <li>You're listed as a teacher! Here are your books and stuff...</li>
-  <%# end %>
-
-  <li>More info here: <%= @profile.profile_link_to_info %></li>
-  <li>Book now: <%= @profile.profile_link_to_booking %></li>
-  <li>Hosted by: <%= @profile.profiles.first.first_name %></li>
-  <li>Inbox</li>
-  <li>Friends</li>
-  <li>Friend Requests</li>
+  <% @users.each do |user| %>
+  <li><%= user.email %> <%= link_to "Connect!", friendships_path(:friend_id => user), :method => :post %></li>
+  <% end %>
 </ul>
