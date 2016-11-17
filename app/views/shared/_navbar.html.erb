@@ -18,6 +18,7 @@
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
         <% else %>
             <li><%= link_to current_user.full_name, profile_path(current_user.profile.id) %></li>
+            <li><%= link_to "Wishlist", 'wishlist/index' %></li>
             <li role="separator" class="divider"></li>
 
             <% if current_user.has_profile? %>

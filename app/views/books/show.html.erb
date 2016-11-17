@@ -15,6 +15,11 @@
   </div>
 
 <% if current_user != nil %>
+  <h3>ADD IN YOUR WISHLIST!</h3>
+    <div class="actions">
+      <a href="/wishlist/<%= @book.id %>", class="btn btn-success"> Make a Wish!</a>
+    </div>
+
   <h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
     <ul>
       <% for friendship in current_user.friendships %>
