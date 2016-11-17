@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'pages/home'
   root 'pages#home'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         get :by_latest
       end
   end
-  
+
   resources :courses do
       collection do
         get :by_course_name
