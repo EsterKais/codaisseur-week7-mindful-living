@@ -2,6 +2,8 @@
 
 <ul>
   <% @users.each do |user| %>
-  <li><%= user.email %> <%= link_to "Connect!", friendships_path(:friend_id => user), :method => :post %></li>
+  <li>
+    <%= link_to user.profile.full_name, profile_path(user.profile.id) %></h3>
+  </li>
   <% end %>
 </ul>
