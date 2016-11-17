@@ -6,7 +6,6 @@
           <li>Description: <%= @book.book_description %></li>
           <li>Buy now: <%= @book.book_link_to_buy %></li>
           <li>By: <%= @book.profiles.first.first_name %></li>
-          <li>Photo: Coming soon!</li>
         </ul>
       </div>
 
@@ -20,12 +19,12 @@
     <ul>
       <% for friendship in current_user.friendships %>
       <li>
-        <%= friendship.friend.email %>
+        <% friend_user = @users.find(friendship.friend.id) %>
         <div class="modal-body">
           <div class="form-group">
             <%= form_for @recommendation, remote: true do |f| %>
-            <%= f.label :recommendation_message, class:"control-label" %>
-            <%= f.text_field :recommendation_message, placeholder: "Leave a message..", class: "form-control" %>
+            <p> Recommend to <%= friend_user.profile.first_name %>: </p>
+            <%= f.text_field :recommendation_message, placeholder: "Leave a little message to #{friend_user.profile.first_name}..", class: "form-control" %>
             <%= f.hidden_field :book_id, value: @book.id %>
             <%= f.hidden_field :recipient_id, value: friendship.friend_id %>
             <% end %>
@@ -34,7 +33,5 @@
       </li>
       <% end %>
     </ul>
-<% else %>
-  <p> You haven't added any friends - go get some here!</p>
 <% end %>
 </div>

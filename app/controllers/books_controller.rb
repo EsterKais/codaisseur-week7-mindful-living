@@ -15,6 +15,8 @@ class BooksController < ApplicationController
     @user = current_user
     @recommendations = Recommendation.all
     @recommendation = @recommendations.new
+
+    @users = User.all
   end
 
   def by_book_name
