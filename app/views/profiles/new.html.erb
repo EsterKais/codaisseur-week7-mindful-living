@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Create your profile
+  </div>
+
+  <%= form_for @profile do |f| %>
+    <% @profile.errors.full_messages.each do |msg| %>
+      <p class="alert alert-danger"><%= msg %></p>
+    <% end %>
+
+    <div class="form-group">
+      <label>First Name</label>
+      <%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Bio</label>
+      <%= f.text_area :profile_description, rows: 5, placeholder: "Say something about yourself", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Gender of your Cow</label>
+      <%= f.select :years_in_practice, [["<1", "<1"], ["1 - 5", "1 - 5"], ["5 - 10", "5 - 10"], [">10", ">10"]], prompt: "Years in Practice:", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Are you a teacher?</label>
+      <%= f.check_box :teacher %> Yes!
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <%= link_to "Back", root_path, class: "btn btn-default" %>
+    </div>
+  <% end %>
+
+</div>
