@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container{
+.container {
   min-width: 1200;
   max-width: 1200;
   display: flex;
@@ -10,7 +10,17 @@
   align-content: space-between;
 }
 
-.display-all-component{
-  min-width: 500;
-  max-width: 500;
+.display-all-component {
+  display: flex;
+  flex-direction: column;
+  margin: 2;
+  border: 1px black solid;
+}
+
+.display-all-component-header {
+  color: black;
+  text-align: center;
+  font-weight: bolder;
+  border-top: 1px black solid;
+  height: 50;
 }

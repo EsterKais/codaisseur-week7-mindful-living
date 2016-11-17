@@ -1,25 +1,38 @@
 <div class="container">
   <div class="display-all-component">
-    <h3 class="page-header">
-      <%= link_to "CHECK OUT THE RETREATS", retreats_path %>
-    </h3>
+    <%= link_to retreats_path do %>
+      <img class="home-page-image" height="300" width="500" src="https://media-cdn.tripadvisor.com/media/photo-s/01/b9/5b/9d/gaia-retreat-spa.jpg"/>
+      <div class="display-all-component-header">
+        OUR RETREATS
+      </div>
+    <% end %>
   </div>
 
   <div class="display-all-component">
-    <h3 class="page-header">
-      <%= link_to "CHECK OUT THE COURSES", courses_path %> </h3>
-
+      <%= link_to courses_path do %>
+        <img class="home-page-image" height="300" width="500" src="http://www.canadianbusiness.com/wp-content/uploads/2011/11/273ce5794c909ea33601b765a630.jpg"/>
+        <div class="display-all-component-header">
+          OUR COURSES
+        </div>
+      <% end %>
   </div>
 
   <div class="display-all-component">
-    <h3 class="page-header">
-      <%= link_to "CHECK OUT THE BOOKS", books_path %>
+      <%= link_to books_path do %>
+        <img class="home-page-image" label="OUR BOOKS" height="300" width="500" src="http://cdn.trendhunterstatic.com/thumbs/reading-retreat.jpeg"/>
+        <div class="display-all-component-header">
+          OUR BOOKS
+        </div>
+      <% end %>
      </h3>
   </div>
 
   <div class="display-all-component">
-    <h3 class="page-header">
-      <%= link_to "CONNECT WITH OTHERS!", profiles_path %>
-    </h3>
+      <%= link_to profiles_path do %>
+      <img class="home-page-image" height="300" width="500" src="http://www.campblack.com.au/wp-content/uploads/2015/05/Raching-Your-Peak-@-Camp-Black-Health-Retreat1.jpg"/>
+      <div class="display-all-component-header">
+        CONNECT WITH OTHERS!
+      </div>
+      <% end %>
   </div>
 </div>
