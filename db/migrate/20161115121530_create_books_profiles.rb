@@ -1,6 +1,6 @@
-class CreateProfilesBooks < ActiveRecord::Migration[5.0]
+class CreateBooksProfiles < ActiveRecord::Migration[5.0]
   def change
-    create_table :profiles_books, id: false do |t|
+    create_table :books_profiles, id: false do |t|
       t.belongs_to :profile, index: true
       t.belongs_to :book, index: true
     end

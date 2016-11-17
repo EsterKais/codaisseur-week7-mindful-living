@@ -1,0 +1,36 @@
+<h3><%= link_to "CONNECT WITH OTHERS!", profiles_path %> </h3>
+
+
+<h3> RETREATS </h3>
+<ul>
+  <% @retreats.each do |retreat| %>
+  <li>
+    <span> Retreat: "<%= link_to retreat.retreat_name, retreat_path(retreat.id) %>"</span>
+    <span> By: <%= retreat.profiles.first.first_name %></span>
+    <span> ID: <%= retreat.id %>
+  </li>
+  <% end %>
+</ul>
+<p> See all! </p>
+
+<h3> COURSES </h3>
+<ul>
+  <% @courses.each do |course| %>
+  <li>
+    <span> Course: "<%= link_to course.course_name, course_path(course.id) %>"</span>
+    <span> By: <%= course.profiles.first.first_name %></span>
+  </li>
+  <% end %>
+</ul>
+<p> See all! </p>
+
+<h3> BOOKS </h3>
+<ul>
+  <% @books.each do |book| %>
+  <li>
+    <span> Book: "<%= link_to book.book_name, book_path(book.id) %>"</span>
+    <span> By: <%= book.profiles.first.first_name %></span>
+  </li>
+  <% end %>
+</ul>
+<p> See all! </p>

@@ -1,0 +1,7 @@
+<h3>Connect with others!</h3>
+
+<ul>
+  <% @users.each do |user| %>
+  <li><%= user.email %> <%= link_to "Connect!", friendships_path(:friend_id => user), :method => :post %></li>
+  <% end %>
+</ul>

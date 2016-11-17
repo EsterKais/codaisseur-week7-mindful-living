@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115143155) do
+ActiveRecord::Schema.define(version: 20161116153054) do
 
   create_table "book_opinions", force: :cascade do |t|
     t.text     "book_opinion_text"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20161115143155) do
     t.string   "book_link_to_buy"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "books_profiles", id: false, force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "book_id"
+    t.index ["book_id"], name: "index_books_profiles_on_book_id"
+    t.index ["profile_id"], name: "index_books_profiles_on_profile_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -72,6 +79,13 @@ ActiveRecord::Schema.define(version: 20161115143155) do
     t.string   "course_link_to_booking"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "courses_profiles", id: false, force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "course_id"
+    t.index ["course_id"], name: "index_courses_profiles_on_course_id"
+    t.index ["profile_id"], name: "index_courses_profiles_on_profile_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -112,25 +126,22 @@ ActiveRecord::Schema.define(version: 20161115143155) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "profiles_books", id: false, force: :cascade do |t|
-    t.integer "profile_id"
-    t.integer "book_id"
-    t.index ["book_id"], name: "index_profiles_books_on_book_id"
-    t.index ["profile_id"], name: "index_profiles_books_on_profile_id"
-  end
-
-  create_table "profiles_courses", id: false, force: :cascade do |t|
-    t.integer "profile_id"
-    t.integer "course_id"
-    t.index ["course_id"], name: "index_profiles_courses_on_course_id"
-    t.index ["profile_id"], name: "index_profiles_courses_on_profile_id"
-  end
-
   create_table "profiles_retreats", id: false, force: :cascade do |t|
     t.integer "profile_id"
     t.integer "retreat_id"
     t.index ["profile_id"], name: "index_profiles_retreats_on_profile_id"
     t.index ["retreat_id"], name: "index_profiles_retreats_on_retreat_id"
+  end
+
+  create_table "recommendations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "recipient_id"
+    t.integer  "book_id"
+    t.integer  "course_id"
+    t.integer  "retreat_id"
+    t.text     "recommendation_message"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "retreat_opinions", force: :cascade do |t|

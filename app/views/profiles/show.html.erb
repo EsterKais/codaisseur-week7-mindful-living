@@ -1,0 +1,48 @@
+<h3>Welcome, <%= @profile.first_name %>!</h3>
+
+<ul>
+  <li>First Name: <%= @profile.first_name %></li>
+  <li>Last Name: <%= @profile.last_name %></li>
+  <li>Years in Practice: <%= @profile.years_in_practice %></li>
+  <li>Bio: <%= @profile.profile_description %></li>
+
+  <% if @profile.teacher = true %>
+  <li>You're listed as a teacher! Here are your books and stuff...</li>
+  <% end %>
+
+
+</ul>
+
+<h3> Friends </h3>
+<ul>
+  <% for friendship in current_user.friendships %>
+  <li><%=h friendship.friend.email %> (<%= link_to "Remove", friendship, :method => :delete %>)</li>
+  <% end %>
+</ul>
+
+<h3> Friend Requests </h3>
+<ul>
+  <% for user in @user.inverse_friends %>
+  <li><%=h user.email %> <%= link_to "Accept!", friendships_path(:friend_id => user), :method => :post %></li>
+  <% end %>
+</ul>
+
+  <h3>Recommendations from Friends VERSION2</h3>
+  <ul>
+    <% for user in @user.inverse_recipients %>
+      <% sender_email = user.email %>
+      <% user = @users.select{|key, hash| key["email"] == sender_email } %>
+      <% end %>
+
+    <% for recommendation in @user.inverse_recipients[0].recommendations %>
+      <% if recommendation.book_id.to_i >= 1 %>
+        <li>Message: <%= recommendation.recommendation_message %> Book: <%= link_to recommendation.book_id, book_path(recommendation.book_id) %> from: <%= user.first.profile.first_name %></li>
+      <% end %>
+      <% if recommendation.course_id.to_i >= 1 %>
+        <li>Message: <%= recommendation.recommendation_message %> Course: <%= link_to recommendation.course_id, course_path(recommendation.course_id) %> from: <%= user.first.profile.first_name %></li>
+      <% end %>
+      <% if recommendation.retreat_id.to_i >= 1 %>
+        <li>Message: <%= recommendation.recommendation_message %> Retreat: <%= link_to recommendation.retreat_id, retreat_path(recommendation.retreat_id) %> from: <%= user.first.profile.first_name %></li>
+      <% end %>
+    <% end %>
+  </ul>

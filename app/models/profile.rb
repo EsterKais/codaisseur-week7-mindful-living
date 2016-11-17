@@ -12,4 +12,8 @@ class Profile < ApplicationRecord
   validates :years_in_practice, presence: true
   validates :teacher, presence: true
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end
