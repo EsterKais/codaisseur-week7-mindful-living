@@ -4,9 +4,26 @@ Rails.application.routes.draw do
   get 'pages/home'
   root 'pages#home'
 
-  resources :retreats
-  resources :books
-  resources :courses
+  resources :retreats do
+      collection do
+        get :by_retreat_name
+        get :by_latest
+      end
+  end
+
+  resources :books do
+      collection do
+        get :by_book_name
+        get :by_latest
+      end
+  end
+  
+  resources :courses do
+      collection do
+        get :by_course_name
+        get :by_latest
+      end
+  end
 
   resources :profiles
   resources :profilephotos #could be profile_photos

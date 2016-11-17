@@ -1,4 +1,17 @@
+<!-- SEARCH STUFF -->
+<div class="SearchField">
+<div><%= form_tag books_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search], placeholder: "search for a book..", class: "form-control"%></div>
+<% end %>
+<!-- END OF SEARCH FIELD -->
+
 <h3 class="page-header"> BOOKS </h3>
+
+<div class="filtering">
+  <%= link_to "Order A-Z", by_book_name_books_path %>
+  <%= link_to "Order by latest", by_latest_books_path %>
+  <%= link_to "All", books_path %>
+</div>
 
 <ul>
   <% @books.each do |book| %>
