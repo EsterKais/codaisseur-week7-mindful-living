@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'pages/home'
   root 'pages#home'
 
+  get 'wishlist/index'
+  get '/wishlist/clearWishlist'
+  get '/wishlist/:id' => "wishlist#add"
+
+
   resources :retreats do
       collection do
         get :by_retreat_name

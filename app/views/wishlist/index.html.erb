@@ -1,0 +1,28 @@
+<div class="cart-body">
+
+      <div class="show-heading">YOUR BOOKS WISHLIST</div>
+      <br><br>
+        <ul class="wishlist">
+          <% @wishlist.each do | id | %>
+            <% @book = Book.find_by_id(id) %>
+            <li class="show-heading profile-list">
+              <%= @book.book_name %>
+            </li>
+            <br>
+          <% end %>
+        </ul>
+<!-- SHOWING TOTAL -->
+
+<!-- EXTRA ACTIONS -->
+        <div class="cart-actions">
+          <% if @wishlist.empty? %>
+            <%= link_to "Make some wishes! :)", root_path, class:"btn btn-success" %>
+            <br><br><br>
+            <% else %>
+          <%= link_to "Keep making wishes!", books_path, class:"btn btn-success"  %>
+          <br><br><br>
+          <%= link_to "Not all wishes are meant to be..", wishlist_clearWishlist_path, class:"btn btn-success"  %>
+          <% end %>
+        </div>
+
+</div>
