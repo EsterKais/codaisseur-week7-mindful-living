@@ -1,86 +1,82 @@
 <div class="container-show-page">
 <% if current_user.profile.last_name == @profile.last_name %>
-
   <h3>Welcome, <%= @profile.first_name %>!</h3>
-  <div class="component-info-all">
-    <div class="component-info-details">
+    <div class="component-info-all">
+      <div class="component-info-details">
+        <ul>
+          <li>First Name: <%= @profile.first_name %></li>
+          <li>Last Name: <%= @profile.last_name %></li>
+          <li>Years in Practice: <%= @profile.years_in_practice %></li>
+          <li>Bio: <%= @profile.profile_description %></li>
+          <%# if @profile.teacher = true %>
+          <!-- <li>You're listed as a teacher! Here are your books and stuff...</li> -->
+          <%# end %>
+        </ul>
+      </div>
 
-  <ul>
-    <li>First Name: <%= @profile.first_name %></li>
-    <li>Last Name: <%= @profile.last_name %></li>
-    <li>Years in Practice: <%= @profile.years_in_practice %></li>
-    <li>Bio: <%= @profile.profile_description %></li>
-
-    <% if @profile.teacher = true %>
-    <li>You're listed as a teacher! Here are your books and stuff...</li>
-    <% end %>
-  </ul>
-</div>
-
-<div class="component-image">
-  <%= image_tag @profilephoto.profile_image, size: "150x200" %>
-</div>
-</div>
+      <div class="component-image">
+        <%= image_tag @profilephoto.profile_image, size: "150x200" %>
+      </div>
+    </div>
 
 
-  <h3>Recommendations from Others</h3>
-    <ul>
-      <% if @user.inverse_recipients.length > 0 %>
-        <% for user in @user.inverse_recipients %>
-          <% for recommendation in user.recommendations %><% end %>
-            <li>
-              Recommendation by <%= user.profile.full_name %>
-              <% if recommendation.has_recommendation_message? %>: "<%= recommendation.recommendation_message %>" <% end %>
-              <% if recommendation.has_book_id? %></br><%= link_to "Check out the recommended Book", book_path(recommendation.book_id) %>. <% end %>
-              <% if recommendation.has_course_id? %></br><%= link_to "Check out the recommended Course", course_path(recommendation.course_id) %>. <% end %>
-              <% if recommendation.has_retreat_id? %></br><%= link_to "Check out the recommended Retreat", retreat_path(recommendation.retreat_id) %>. <% end %>
-              <%= link_to "Not for me", recommendation, :method => :delete %>
-            </li>
+    <h3>Recommendations from Others</h3>
+      <ul>
+        <% if @user.inverse_recipients.length > 0 %>
+          <% for user in @user.inverse_recipients %>
+            <% for recommendation in user.recommendations %><% end %>
+              <li>
+                Recommendation by <%= user.profile.full_name %>
+                <% if recommendation.has_recommendation_message? %>: "<%= recommendation.recommendation_message %>" <% end %>
+                <% if recommendation.has_book_id? %></br><%= link_to "Check out the recommended Book", book_path(recommendation.book_id) %>. <% end %>
+                <% if recommendation.has_course_id? %></br><%= link_to "Check out the recommended Course", course_path(recommendation.course_id) %>. <% end %>
+                <% if recommendation.has_retreat_id? %></br><%= link_to "Check out the recommended Retreat", retreat_path(recommendation.retreat_id) %>. <% end %>
+                <%= link_to "Not for me", recommendation, :method => :delete %>
+              </li>
+          <% end %>
+        <% else %>
+          <p> You have no recommendations yet. </p>
         <% end %>
-      <% else %>
-        <p> You have no recommendations yet. </p>
+      </ul>
+
+  <h3> Following you </h3>
+    <% if @user.inverse_friends.length > 0 %>
+      <ul>
+        <% for user in @user.inverse_friends %>
+        <li><%= link_to user.profile.full_name, profile_path(user.profile.id) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p> You don't have any followers </p>
+    <% end %>
+
+
+  <h3> Friends </h3>
+    <ul>
+      <% for friendship in current_user.friendships %>
+        <li>
+          <%= friendship.friend.email %>
+          (<%= link_to "Remove", friendship, remote: true, :method => :delete %>)
+        </li>
       <% end %>
     </ul>
 
-
-    <h3> Following you: </h3>
-      <ul>
-        <% for user in @user.inverse_friends %>
-        <li><%=h link_to user.profile.full_name, profile_path(user.profile.id) %></li>
-        <% end %>
-     </ul>
-
-
-     <h3> Friends </h3>
-       <ul>
-         <% for friendship in current_user.friendships %>
-           <li>
-             <%=h friendship.friend.email %>
-             (<%= link_to "Remove", friendship, remote: true, :method => :delete %>)
-           </li>
-         <% end %>
-     </ul>
-
-
 <% else %>
+
   <h3>Welcome to <%= @profile.first_name %>'s Profile!</h3>
 
-  <ul>
-    <li>First Name: <%= @profile.first_name %></li>
-    <li>Last Name: <%= @profile.last_name %></li>
-    <li>Years in Practice: <%= @profile.years_in_practice %></li>
-    <li>Bio: <%= @profile.profile_description %></li>
+    <ul>
+      <li>First Name: <%= @profile.first_name %></li>
+      <li>Last Name: <%= @profile.last_name %></li>
+      <li>Years in Practice: <%= @profile.years_in_practice %></li>
+      <li>Bio: <%= @profile.profile_description %></li>
 
-    <% if @profile.teacher = true %>
-    <li><%= @profile.first_name %> is a teacher.</li>
-    <% end %>
-  </ul>
+      <% if @profile.teacher = true %>
+        <li><%= @profile.first_name %> is a teacher.</li>
+      <% end %>
+    </ul>
 
-  <h3><%= link_to "Follow #{@profile.first_name}!", friendships_path(:friend_id => user), :method => :post %></h3>
-
+  <h3><%= link_to "Follow #{@profile.first_name}!", friendships_path(:friend_id => @profile.user.id), :method => :post %></h3>
 
 <% end %>
-
-
-
 </div>
