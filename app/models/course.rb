@@ -8,4 +8,11 @@ class Course < ApplicationRecord
   validates :course_name, presence: true, uniqueness: true
   validates :course_description, presence: true
 
+# SCOPES
+  scope :by_course_name,    -> { order(:course_name) }
+  scope :by_latest,       -> { order(:updated_at) }
+
+  def self.search(search)
+    Course.where('course_name LIKE :search OR course_description LIKE :search', search: "%#{search}")
+  end
 end

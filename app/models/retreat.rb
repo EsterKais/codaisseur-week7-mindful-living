@@ -8,4 +8,11 @@ class Retreat < ApplicationRecord
   validates :retreat_name, presence: true, uniqueness: true
   validates :retreat_description, presence: true
 
+# SCOPES
+  scope :by_retreat_name,    -> { order(:retreat_name) }
+  scope :by_latest,       -> { order(:updated_at) }
+
+  def self.search(search)
+    Retreat.where('retreat_name LIKE :search OR retreat_description LIKE :search', search: "%#{search}")
+  end
 end

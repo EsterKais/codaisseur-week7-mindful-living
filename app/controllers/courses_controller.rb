@@ -2,6 +2,8 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
+    @courses = Course.search (params[:search]) unless params[:search].blank?
+
   end
 
   def show
@@ -12,5 +14,15 @@ class CoursesController < ApplicationController
     @user = current_user
     @recommendations = Recommendation.all
     @recommendation = @recommendations.new
+  end
+
+  def by_course_name
+    @courses = Course.by_course_name
+    render action: :index
+  end
+
+  def by_latest
+    @courses = Course.by_latest
+    render action: :index
   end
 end

@@ -1,4 +1,18 @@
+<!-- SEARCH STUFF -->
+<div class="SearchField">
+<div><%= form_tag books_path, :method => 'get' do %>
+<%= text_field_tag :search, params[:search], placeholder: "search for a retreat..", class: "form-control"%></div>
+<% end %>
+<!-- END OF SEARCH FIELD -->
+
 <h3 class="page-header"> RETREATS </h3>
+
+<div class="filtering">
+  <%= link_to "Order A-Z", by_retreat_name_retreats_path %>
+  <%= link_to "Order by latest", by_latest_retreats_path %>
+  <%= link_to "All", retreats_path %>
+</div>
+
   <ul>
     <% @retreats.each do |retreat| %>
     <li>
