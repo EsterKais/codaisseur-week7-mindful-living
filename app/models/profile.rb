@@ -16,4 +16,8 @@ class Profile < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def self.search(search)
+    Profile.where('first_name LIKE :search OR last_name LIKE :search', search: "%#{search}")
+  end
+
 end

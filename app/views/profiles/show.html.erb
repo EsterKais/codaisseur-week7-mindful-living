@@ -61,6 +61,14 @@
       <% end %>
     </ul>
 
+    <!-- SEARCH STUFF -->
+    <div class="SearchField">
+    <div><%= form_tag profiles_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search], placeholder: "search for friends..", class: "form-control"%></div>
+    <% end %>
+    <%= link_to "Show All", profiles_path %>
+    <!-- END OF SEARCH FIELD -->
+
 <% else %>
 
   <h3>Welcome to <%= @profile.first_name %>'s Profile!</h3>
