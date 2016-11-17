@@ -1,27 +1,40 @@
-<h3><%= @book.book_name %></h3>
-
-<ul>
-  <li>Description: <%= @book.book_description %></li>
-  <li>Buy now: <%= @book.book_link_to_buy %></li>
-  <li>By: <%= @book.profiles.first.first_name %></li>
-  <li>Photo: Coming soon!</li>
-</ul>
-
-<h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
-<ul>
-  <% for friendship in current_user.friendships %>
-  <li>
-    <%=h friendship.friend.email %>
-    <div class="modal-body">
-      <div class="form-group">
-        <%= form_for @recommendation, remote: true do |f| %>
-        <%= f.label :recommendation_message, class:"control-label" %>
-        <%= f.text_field :recommendation_message, placeholder: "Leave a message..", class: "form-control" %>
-        <%= f.hidden_field :book_id, value: @book.id %>
-        <%= f.hidden_field :recipient_id, value: friendship.friend_id %>
-        <% end %>
+<div class="container-show-page">
+  <h3><%= @book.book_name %></h3>
+    <div class="component-info-all">
+      <div class="component-info-details">
+        <ul>
+          <li>Description: <%= @book.book_description %></li>
+          <li>Buy now: <%= @book.book_link_to_buy %></li>
+          <li>By: <%= @book.profiles.first.first_name %></li>
+          <li>Photo: Coming soon!</li>
+        </ul>
       </div>
-    </div>
-  </li>
-  <% end %>
-</ul>
+
+      <div class="component-image">
+        <%= image_tag @bookphoto.book_image, size: "150x200" %>
+      </div>
+  </div>
+
+<% if current_user != nil %>
+  <h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
+    <ul>
+      <% for friendship in current_user.friendships %>
+      <li>
+        <%= friendship.friend.email %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= form_for @recommendation, remote: true do |f| %>
+            <%= f.label :recommendation_message, class:"control-label" %>
+            <%= f.text_field :recommendation_message, placeholder: "Leave a message..", class: "form-control" %>
+            <%= f.hidden_field :book_id, value: @book.id %>
+            <%= f.hidden_field :recipient_id, value: friendship.friend_id %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+<% else %>
+  <p> You haven't added any friends - go get some here!</p>
+<% end %>
+</div>

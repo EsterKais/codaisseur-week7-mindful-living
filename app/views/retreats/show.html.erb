@@ -1,28 +1,41 @@
-<h3><%= @retreat.retreat_name %></h3>
-
-<ul>
-  <li>Description: <%= @retreat.retreat_description %></li>
-  <li>More info here: <%= @retreat.retreat_link_to_info %></li>
-  <li>Book now: <%= @retreat.retreat_link_to_booking %></li>
-  <li>Hosted by: <%= @retreat.profiles.first.first_name %></li>
-  <li>Photos: Coming soon!</li>
-</ul>
-
-<h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
-<ul>
-  <% for friendship in current_user.friendships %>
-  <li>
-    <%=h friendship.friend.email %>
-    <div class="modal-body">
-      <div class="form-group">
-        <%= form_for @recommendation, remote: true do |f| %>
-        <%= f.label :recommendation_message, class:"control-label" %>
-        <%= f.text_field :recommendation_message, placeholder: "Leave a message..", class: "form-control" %>
-        <%= f.hidden_field :retreat_id, value: @retreat.id %>
-        <%= f.hidden_field :recipient_id, value: friendship.friend_id %>
-        <% end %>
-      </div>
+<div class="container-show-page">
+  <h3><%= @retreat.retreat_name %></h3>
+    <div class="component-info-all">
+      <div class="component-info-details">
+        <ul>
+          <li>Description: <%= @retreat.retreat_description %></li>
+          <li>More info here: <%= @retreat.retreat_link_to_info %></li>
+          <li>Book now: <%= @retreat.retreat_link_to_booking %></li>
+          <li>Hosted by: <%= @retreat.profiles.first.first_name %></li>
+          <li>Photos: Coming soon!</li>
+        </ul>
     </div>
-  </li>
-  <% end %>
-</ul>
+
+    <div class="component-image">
+      <%= image_tag @retreatphoto.retreat_image, size: "150x200" %>
+    </div>
+  </div>
+
+<% if current_user != nil %>
+  <h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
+    <ul>
+      <% for friendship in current_user.friendships %>
+        <li>
+          <%=h friendship.friend.email %>
+          <div class="modal-body">
+            <div class="form-group">
+              <%= form_for @recommendation, remote: true do |f| %>
+              <%= f.label :recommendation_message, class:"control-label" %>
+              <%= f.text_field :recommendation_message, placeholder: "Leave a message..", class: "form-control" %>
+              <%= f.hidden_field :retreat_id, value: @retreat.id %>
+              <%= f.hidden_field :recipient_id, value: friendship.friend_id %>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+<% else %>
+  <p> You haven't added any friends - go get some here!</p>
+<% end %>
+</div>

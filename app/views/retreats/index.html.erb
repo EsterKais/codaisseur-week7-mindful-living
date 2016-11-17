@@ -1,0 +1,9 @@
+<h3 class="page-header"> RETREATS </h3>
+  <ul>
+    <% @retreats.each do |retreat| %>
+    <li>
+      <span> Retreat: "<%= link_to retreat.retreat_name, retreat_path(retreat.id) %>"</span>
+      <span> By: <%= retreat.profiles.first.first_name %></span>
+    </li>
+    <% end %>
+  </ul>
