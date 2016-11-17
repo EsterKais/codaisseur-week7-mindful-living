@@ -1,23 +1,31 @@
+<h3 class="page-header"> BOOKS </h3>
 <!-- SEARCH STUFF -->
 <div class="SearchField">
 <div><%= form_tag books_path, :method => 'get' do %>
 <%= text_field_tag :search, params[:search], placeholder: "search for a book..", class: "form-control"%></div>
 <% end %>
+</div>
 <!-- END OF SEARCH FIELD -->
-
-<h3 class="page-header"> BOOKS </h3>
-
 <div class="filtering">
-  <%= link_to "Order A-Z", by_book_name_books_path %>
-  <%= link_to "Order by latest", by_latest_books_path %>
+  <%= link_to "Order A-Z", by_book_name_books_path %> ---
+  <%= link_to "Order by latest", by_latest_books_path %> ---
   <%= link_to "All", books_path %>
 </div>
 
-<ul>
-  <% @books.each do |book| %>
-  <li>
-    <span> Book: "<%= link_to book.book_name, book_path(book.id) %>"</span>
-    <span> By: <%= book.profiles.first.first_name %></span>
-  </li>
-  <% end %>
-</ul>
+  <ul class="container">
+    <% @books.each do |book| %>
+    <li class="specific-component-info-all">
+
+        <div class="component-image">
+          <%= link_to book_path(book.id) do %>
+            <%= image_tag @bookphotos.find(book.id).book_image, size: "150x200" %>
+          <% end %>
+        </div>
+
+        <div class="specific-component-header"><%= book.book_name %>
+        </br> by <%= book.profiles.first.first_name %>
+        </div>
+
+    </li>
+    <% end %>
+  </ul>

@@ -51,11 +51,11 @@ susanna_course_one = Course.create(course_name: "Course4", course_description: "
 miriam_course_one = Course.create(course_name: "Course5", course_description: "New yadiyada Course5 of Now Bla Miriam Course", course_link_to_info: "I am a course5 link to info", course_link_to_booking: "I am link to course5 booking", profiles: [miriam_profile])
 
 # PHOTOS_RETREAT
-RetreatPhoto.create(retreat: ester_retreat_two, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/bookpowerofnow.jpg")
-RetreatPhoto.create(retreat: ester_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/booknewearth.jpg")
-RetreatPhoto.create(retreat: laura_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-RetreatPhoto.create(retreat: susanna_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-RetreatPhoto.create(retreat: miriam_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+RetreatPhoto.create(retreat: ester_retreat_two, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/Retreat.jpg")
+RetreatPhoto.create(retreat: ester_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373534/mindful-living/retreat2.jpg")
+RetreatPhoto.create(retreat: laura_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/retreat4.jpg")
+RetreatPhoto.create(retreat: susanna_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/retreat5.jpg")
+RetreatPhoto.create(retreat: miriam_retreat_one, remote_retreat_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/retrteat3.jpg")
 
 # PHOTOS_BOOK
 BookPhoto.create(book: ester_book_two, book_image: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/bookpowerofnow.jpg")
@@ -65,17 +65,17 @@ BookPhoto.create(book: susanna_book_one, book_image: "http://res.cloudinary.com/
 BookPhoto.create(book: miriam_book_one, book_image: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
 
 # PHOTOS_COURSE
-CoursePhoto.create(course: ester_course_two, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/bookpowerofnow.jpg")
-CoursePhoto.create(course: ester_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/booknewearth.jpg")
-CoursePhoto.create(course: laura_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-CoursePhoto.create(course: susanna_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-CoursePhoto.create(course: miriam_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+CoursePhoto.create(course: ester_course_two, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373533/mindful-living/course1.jpg")
+CoursePhoto.create(course: ester_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/course3.jpg")
+CoursePhoto.create(course: laura_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/course4.jpg")
+CoursePhoto.create(course: susanna_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/course5.jpg")
+CoursePhoto.create(course: miriam_course_one, remote_course_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/course2.jpg")
 
 # PHOTOS_PROFILE
-ProfilePhoto.create(profile: ester_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/bookpowerofnow.jpg")
-ProfilePhoto.create(profile: amber_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/booknewearth.jpg")
-ProfilePhoto.create(profile: pascal_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-ProfilePhoto.create(profile: laura_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-ProfilePhoto.create(profile: susanna_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-ProfilePhoto.create(profile: miriam_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
-ProfilePhoto.create(profile: leslie_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+# ProfilePhoto.create(profile: ester_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373531/mindful-living/bookpowerofnow.jpg")
+# ProfilePhoto.create(profile: amber_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373532/mindful-living/booknewearth.jpg")
+# ProfilePhoto.create(profile: pascal_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+# ProfilePhoto.create(profile: laura_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+# ProfilePhoto.create(profile: susanna_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+# ProfilePhoto.create(profile: miriam_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")
+# ProfilePhoto.create(profile: leslie_profile, remote_profile_image_url: "http://res.cloudinary.com/dfc7k24vb/image/upload/v1479373883/mindful-living/bookall.png")

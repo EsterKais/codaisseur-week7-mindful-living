@@ -1,3 +1,4 @@
+<h3 class="page-header"> COURSES </h3>
 <!-- SEARCH STUFF -->
 <div class="SearchField">
 <div><%= form_tag courses_path, :method => 'get' do %>
@@ -5,19 +6,27 @@
 <% end %>
 <!-- END OF SEARCH FIELD -->
 
-<h3 class="page-header"> COURSES </h3>
-
 <div class="filtering">
   <%= link_to "Order A-Z", by_course_name_courses_path %>
   <%= link_to "Order by latest", by_latest_courses_path %>
   <%= link_to "All", courses_path %>
 </div>
 
-  <ul>
+  <ul class="container">
     <% @courses.each do |course| %>
-    <li>
-      <span> Course: "<%= link_to course.course_name, course_path(course.id) %>"</span>
-      <span> By: <%= course.profiles.first.first_name %></span>
+    <li class="specific-component-info-all">
+
+      <div class="component-image">
+        <% course_photo = @coursephotos.find(course.id) %>
+        <%= link_to course_path(course.id) do %>
+          <%= image_tag course_photo.course_image, size: "300x200" %>
+        <% end %>
+      </div>
+
+      <div class="specific-component-header"><%= course.course_name %>
+      </br> by <%= course.profiles.first.first_name %>
+      </div>
+
     </li>
     <% end %>
   </ul>

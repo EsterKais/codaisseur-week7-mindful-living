@@ -10,6 +10,13 @@
   align-content: space-between;
 }
 
+.SearchField {
+  align-items: center;
+}
+
+.page-header {
+  text-align: center;
+}
 .container-show-page {
   min-width: 1200;
   max-width: 1200;
@@ -31,8 +38,20 @@
   height: 50;
 }
 
+.specific-component-header {
+  color: black;
+  text-align: center;
+  font-weight: bolder;
+  height: 50;
+}
+
 .component-info-all {
   display: flex;
   flex-direction: row;
   align-content:space-between;
+}
+
+.specific-component-info-all {
+  display: flex;
+  flex-direction: column;
 }

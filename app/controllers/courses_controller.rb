@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
     @courses = Course.search (params[:search]) unless params[:search].blank?
-
+    @coursephotos = CoursePhoto.all
   end
 
   def show
@@ -18,11 +18,13 @@ class CoursesController < ApplicationController
 
   def by_course_name
     @courses = Course.by_course_name
+    @coursephotos = CoursePhoto.all
     render action: :index
   end
 
   def by_latest
     @courses = Course.by_latest
+    @coursephotos = CoursePhoto.all    
     render action: :index
   end
 end

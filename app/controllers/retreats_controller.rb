@@ -3,6 +3,7 @@ class RetreatsController < ApplicationController
   def index
     @retreats = Retreat.all
     @retreats = Retreat.search (params[:search]) unless params[:search].blank?
+    @retreatphotos = RetreatPhoto.all
   end
 
   def show
@@ -17,11 +18,13 @@ class RetreatsController < ApplicationController
 
   def by_retreat_name
     @retreats = Retreat.by_retreat_name
+    @retreatphotos = RetreatPhoto.all
     render action: :index
   end
 
   def by_latest
     @retreats = Retreat.by_latest
+    @retreatphotos = RetreatPhoto.all    
     render action: :index
   end
 end
