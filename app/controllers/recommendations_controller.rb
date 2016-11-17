@@ -4,18 +4,19 @@ class RecommendationsController < ApplicationController
     @recommendation = current_user.recommendations.build(recommendation_params)
     if @recommendation.save
       flash[:notice] = "Recommendation Sent!"
-      redirect_to root_path
+      redirect_to profiles_path
     else
       flash[:error] = "Ooopsie!"
-      redirect_to root_path
+      redirect_to profiles_path
     end
   end
 
   def destroy
-    @recommendation = current_user.recommendations.find(params[:id])
+    @recommendations = Recommendation.all
+    @recommendation = @recommendations.find(params[:id])
     @recommendation.destroy
     flash[:notice] = "Recommendation Removed!"
-    redirect_to root_path
+    redirect_to profile_path(current_user.profile.id)
   end
 
   private
