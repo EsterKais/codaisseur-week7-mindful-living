@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
     @users = User.all
+
+    @profiles = Profile.search (params[:search]) unless params[:search].blank?
   end
 
   def show
