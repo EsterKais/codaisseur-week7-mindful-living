@@ -1,0 +1,9 @@
+<h3 class="page-header"> COURSES </h3>
+  <ul>
+    <% @courses.each do |course| %>
+    <li>
+      <span> Course: "<%= link_to course.course_name, course_path(course.id) %>"</span>
+      <span> By: <%= course.profiles.first.first_name %></span>
+    </li>
+    <% end %>
+  </ul>

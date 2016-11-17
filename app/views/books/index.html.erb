@@ -1,0 +1,10 @@
+<h3 class="page-header"> BOOKS </h3>
+
+<ul>
+  <% @books.each do |book| %>
+  <li>
+    <span> Book: "<%= link_to book.book_name, book_path(book.id) %>"</span>
+    <span> By: <%= book.profiles.first.first_name %></span>
+  </li>
+  <% end %>
+</ul>

@@ -1,33 +1,25 @@
-<h3><%= link_to "CONNECT WITH OTHERS!", profiles_path %> </h3>
+<div class="container">
+  <div class="display-all-component">
+    <h3 class="page-header">
+      <%= link_to "CHECK OUT THE RETREATS", retreats_path %>
+    </h3>
+  </div>
 
+  <div class="display-all-component">
+    <h3 class="page-header">
+      <%= link_to "CHECK OUT THE COURSES", courses_path %> </h3>
 
-<h3> CHECK OUT THE RETREATS </h3>
-<ul>
-  <% @retreats.each do |retreat| %>
-  <li>
-    <span> Retreat: "<%= link_to retreat.retreat_name, retreat_path(retreat.id) %>"</span>
-    <span> By: <%= retreat.profiles.first.first_name %></span>
-    <span> ID: <%= retreat.id %>
-  </li>
-  <% end %>
-</ul>
+  </div>
 
-<h3> CHECK OUT THE COURSES </h3>
-<ul>
-  <% @courses.each do |course| %>
-  <li>
-    <span> Course: "<%= link_to course.course_name, course_path(course.id) %>"</span>
-    <span> By: <%= course.profiles.first.first_name %></span>
-  </li>
-  <% end %>
-</ul>
+  <div class="display-all-component">
+    <h3 class="page-header">
+      <%= link_to "CHECK OUT THE BOOKS", books_path %>
+     </h3>
+  </div>
 
-<h3> CHECK OUT THE BOOKS </h3>
-<ul>
-  <% @books.each do |book| %>
-  <li>
-    <span> Book: "<%= link_to book.book_name, book_path(book.id) %>"</span>
-    <span> By: <%= book.profiles.first.first_name %></span>
-  </li>
-  <% end %>
-</ul>
+  <div class="display-all-component">
+    <h3 class="page-header">
+      <%= link_to "CONNECT WITH OTHERS!", profiles_path %>
+    </h3>
+  </div>
+</div>
