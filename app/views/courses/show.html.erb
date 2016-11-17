@@ -1,4 +1,7 @@
+<div class="container-show-page">
 <h3><%= @course.course_name %></h3>
+<div class="component-info-all">
+  <div class="component-info-details">
 
 <ul>
   <li>Description: <%= @course.course_description %></li>
@@ -7,6 +10,14 @@
   <li>Hosted by: <%= @course.profiles.first.first_name %></li>
   <li>Photos: Coming soon!</li>
 </ul>
+</div>
+
+<div class="component-image">
+  <%= image_tag @coursephoto.course_image, size: "150x200" %>
+</div>
+</div>
+
+<% if current_user != nil %>
 
 <h3>RECOMMEND ME TO YOUR FRIENDS!</h3>
 <ul>
@@ -26,3 +37,7 @@
   </li>
   <% end %>
 </ul>
+<% else %>
+  <p> You haven't added any friends - go get some here!</p>
+<% end %>
+</div>

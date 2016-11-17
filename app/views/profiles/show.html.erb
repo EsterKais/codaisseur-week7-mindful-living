@@ -1,6 +1,9 @@
+<div class="container-show-page">
 <% if current_user.profile.last_name == @profile.last_name %>
 
   <h3>Welcome, <%= @profile.first_name %>!</h3>
+  <div class="component-info-all">
+    <div class="component-info-details">
 
   <ul>
     <li>First Name: <%= @profile.first_name %></li>
@@ -12,6 +15,13 @@
     <li>You're listed as a teacher! Here are your books and stuff...</li>
     <% end %>
   </ul>
+</div>
+
+<div class="component-image">
+  <%= image_tag @profilephoto.profile_image, size: "150x200" %>
+</div>
+</div>
+
 
   <h3>Recommendations from Others</h3>
     <ul>
@@ -70,3 +80,7 @@
 
 
 <% end %>
+
+
+
+</div>

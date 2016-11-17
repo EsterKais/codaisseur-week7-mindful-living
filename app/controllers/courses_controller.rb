@@ -6,6 +6,9 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @coursephotos = CoursePhoto.all
+    course_id = @course.id
+    @coursephoto = @coursephotos.find(course_id)
     @user = current_user
     @recommendations = Recommendation.all
     @recommendation = @recommendations.new
