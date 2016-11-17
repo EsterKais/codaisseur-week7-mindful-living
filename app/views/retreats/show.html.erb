@@ -7,7 +7,6 @@
           <li>More info here: <%= @retreat.retreat_link_to_info %></li>
           <li>Book now: <%= @retreat.retreat_link_to_booking %></li>
           <li>Hosted by: <%= @retreat.profiles.first.first_name %></li>
-          <li>Photos: Coming soon!</li>
         </ul>
     </div>
 
@@ -35,7 +34,5 @@
         </li>
       <% end %>
     </ul>
-<% else %>
-  <p> You haven't added any friends - go get some here!</p>
 <% end %>
 </div>

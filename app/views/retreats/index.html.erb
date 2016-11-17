@@ -3,21 +3,30 @@
 <div><%= form_tag retreats_path, :method => 'get' do %>
 <%= text_field_tag :search, params[:search], placeholder: "search for a retreat..", class: "form-control"%></div>
 <% end %>
+</div>
 <!-- END OF SEARCH FIELD -->
-
-<h3 class="page-header"> RETREATS </h3>
-
 <div class="filtering">
-  <%= link_to "Order A-Z", by_retreat_name_retreats_path %>
-  <%= link_to "Order by latest", by_latest_retreats_path %>
+  <%= link_to "Order A-Z", by_retreat_name_retreats_path %> ---
+  <%= link_to "Order by latest", by_latest_retreats_path %> ---
   <%= link_to "All", retreats_path %>
 </div>
 
-  <ul>
+<h3 class="page-header"> RETREATS </h3>
+  <ul class="container">
     <% @retreats.each do |retreat| %>
-    <li>
-      <span> Retreat: "<%= link_to retreat.retreat_name, retreat_path(retreat.id) %>"</span>
-      <span> By: <%= retreat.profiles.first.first_name %></span>
+    <li class="specific-component-info-all">
+
+        <div class="component-image">
+          <% retreat_photo = @retreatphotos.find(retreat.id) %>
+          <%= link_to retreat_path(retreat.id) do %>
+            <%= image_tag retreat_photo.retreat_image, size: "300x200" %>
+          <% end %>
+        </div>
+
+        <div class="specific-component-header"><%= retreat.retreat_name %>
+        </br> by <%= retreat.profiles.first.first_name %>
+        </div>
+
     </li>
     <% end %>
   </ul>
