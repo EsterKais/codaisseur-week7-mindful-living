@@ -30,8 +30,4 @@ Rails.application.routes.draw do
 
   resources :friendships, only: [:create, :destroy]
   resources :recommendations, only: [:new, :create, :destroy]
-
-  resources :conversations do
-    resources :messages
-  end
 end
