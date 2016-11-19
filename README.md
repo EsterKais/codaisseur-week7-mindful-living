@@ -1,24 +1,13 @@
-# README
+# Summary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Individual final project at Codaisseur Academy. The requirements for this assignment were to create a database of books, which includes the following functionalities:
 
-Things you may want to cover:
+* Friend system
+* Recommendation system
+* Search and filter functionality
 
-* Ruby version
+In addition to books, I created a concept of mindful living, where also courses and retreats are displayed related to mindfulness.
 
-* System dependencies
+## Homepage
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![homepage](http://res.cloudinary.com/dfc7k24vb/image/upload/c_scale,q_auto:low,w_679/v1479559223/screencapture-localhost-3000-1479559178937_ewjn2a.png "Homepage")
